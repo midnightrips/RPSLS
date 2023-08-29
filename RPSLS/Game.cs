@@ -23,11 +23,15 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to RPSLS! Here are the rules:\n");
             Console.WriteLine("Rock crushes Scissors\nScissors cuts Paper \nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\n");
+            Console.WriteLine("Best of 3 wins!");
         }
 
         public int ChooseNumberOfHumanPlayers()
         {
-            return 0;
+            Console.WriteLine("Do you have 1 or 2 players?\n(Hint: enter either 1 or 2");
+            string numberChosen = Console.ReadLine();
+            int numberOfPlayers = int.Parse(numberChosen);
+            return numberOfPlayers;
         }
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
