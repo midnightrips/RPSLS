@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    internal class ComputerPlayer
+    internal class ComputerPlayer : Player
     {
+        Random rand;
+        public ComputerPlayer(string name) : base(name)
+        {
+            rand = new Random();
+        }
+
+        public override void ChooseGesture()
+        {
+            throw new NotImplementedException();
+            int gestureIndex = rand.Next(gestures.Count);
+            chosenGesture = gestures[gestureIndex];
+        }
     }
 }
