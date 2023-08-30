@@ -30,13 +30,34 @@ namespace RPSLS
         {
             Console.WriteLine("Do you have 1 or 2 players?\n(Hint: enter either 1 or 2");
             string numberChosen = Console.ReadLine();
-            int numberOfPlayers = int.Parse(numberChosen);
-            return numberOfPlayers;
+            while(numberChosen != "1" && numberChosen != "2")
+            {
+                Console.WriteLine("Please enter either '1' or '2':");
+                numberChosen = Console.ReadLine();
+            }
+            int numberOfHumanPlayers = int.Parse(numberChosen);
+            return numberOfHumanPlayers;
         }
 
         public void CreatePlayerObjects(int numberOfHumanPlayers)
         {
+            if(numberOfHumanPlayers == 1)
+            {
+                Console.WriteLine("What shall you be called?");
+                string playerName = Console.ReadLine();
+                playerOne = new HumanPlayer(playerName);
+                playerTwo = new ComputerPlayer("CPU");
+            }
+            else if(numberOfHumanPlayers == 2)
+            {
+                Console.WriteLine("Player 1, what shall you be called?");
+                string playerOneName = Console.ReadLine();
+                playerOne = new HumanPlayer(playerOneName);
 
+                Console.WriteLine("Player 2, what shall you be called?");
+                string playerTwoName = Console.ReadLine();
+                playerTwo = new HumanPlayer(playerTwoName);
+            }
         }
 
         public void CompareGestures()
