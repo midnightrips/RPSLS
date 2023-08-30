@@ -18,13 +18,12 @@ namespace RPSLS
         //member methods
         public override void ChooseGesture()
         {
-            throw new NotImplementedException();
-            Console.WriteLine("Choose one of the following:\n");
-            Console.WriteLine("Rock\nPaper\nScissors\nLizard\nLizard\nSpock");
+            Console.WriteLine("Choose one of the following:");
+            Console.WriteLine("Rock\nPaper\nScissors\nLizard\nSpock\n");
             string choosingGesture = Console.ReadLine();
             chosenGesture = choosingGesture.ToLower();
             
-            while(chosenGesture != "rock" || chosenGesture != "paper" || chosenGesture != "scissors" || chosenGesture != "lizard" || chosenGesture != "spock") //there's gotta be a simplified way of doing this via comparison to the list gestures
+            while(chosenGesture != "rock" && chosenGesture != "paper" && chosenGesture != "scissors" && chosenGesture != "lizard" && chosenGesture != "spock") //there's gotta be a simplified way of doing this via comparison to the list gestures
             {
                 Console.WriteLine($"{choosingGesture} is not an option. Please choose from the following options:\nRock\nPaper\nScissors\nLizard\nLizard\nSpock");
                 choosingGesture = Console.ReadLine();

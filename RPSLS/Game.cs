@@ -23,12 +23,12 @@ namespace RPSLS
         {
             Console.WriteLine("Welcome to RPSLS! Here are the rules:\n");
             Console.WriteLine("Rock crushes Scissors\nScissors cuts Paper \nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\n");
-            Console.WriteLine("Best of 3 wins!");
+            Console.WriteLine("Best of 3 wins!\n");
         }
 
         public int ChooseNumberOfHumanPlayers()
         {
-            Console.WriteLine("Do you have 1 or 2 players?\n(Hint: enter either 1 or 2");
+            Console.WriteLine("How many humans are going to play?\n(Hint: enter either 1 or 2)");
             string numberChosen = Console.ReadLine();
             while(numberChosen != "1" && numberChosen != "2")
             {
@@ -62,9 +62,6 @@ namespace RPSLS
 
         public void CompareGestures()
         {
-            //while score is <2 for both players
-            while(playerOne.score < 2 && playerTwo.score < 2)
-            {
                 Console.WriteLine($"{playerOne.name} chose {playerOne.chosenGesture}.");
                 Console.WriteLine($"{playerTwo.name} chose {playerTwo.chosenGesture}.");
                 if (playerOne.chosenGesture == playerTwo.chosenGesture)
@@ -190,8 +187,7 @@ namespace RPSLS
                     Console.WriteLine($"Lizard poisons Spock. {playerTwo.name} wins this round!\n\n");
                     playerTwo.score++;
                     Console.WriteLine($"The score is ({playerOne.name}) {playerOne.score} to ({playerTwo.name}) {playerTwo.score}.\n");
-                }
-            }           
+                }          
         }
 
         public void DisplayGameWinner()
@@ -213,6 +209,19 @@ namespace RPSLS
         public void RunGame()
         {
             WelcomeMessage();
+
+            int numberOfHumanPlayers = ChooseNumberOfHumanPlayers();
+
+            CreatePlayerObjects(numberOfHumanPlayers);
+
+            while(playerOne.score <2 && playerTwo.score <2)
+            {
+                playerOne.ChooseGesture();
+                playerTwo.ChooseGesture();
+                CompareGestures();
+            }
+            
+            DisplayGameWinner();
         }
     }
 }
